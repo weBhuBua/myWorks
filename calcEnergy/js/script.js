@@ -1,7 +1,3 @@
-
-
-
-
 function calcEnergy() {
    let dayOld = +document.querySelector('.day-old').value; // День - прошлые значения
    let dayNew = +document.querySelector('.day-new').value; // День - текущие значения
@@ -70,7 +66,7 @@ function calcEnergy() {
             Подсчитано!
          </div>`;
             outKwch.innerHTML = `Всего кВт/ч <span class="text-primary">${totalEnergy}</span>`;
-            outMoney.innerHTML = `<p data-toggle="tooltip" data-placement="top" title="Возможна погрешность +- 0.2%">К оплате <i class="fas fa-exclamation-triangle"></i></p><span class="text-success">${totalMoney.toFixed(2)}</span>`;
+            outMoney.innerHTML = `<p data-toggle="tooltip" data-placement="top" title="Возможна погрешность +- 0.2%">К оплате <i class="fas fa-exclamation-triangle"></i></p><span class="text-success">${totalMoney.toFixed(2)} грн.</span>`;
             dropd.innerHTML = `<div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Подробнее
@@ -78,8 +74,8 @@ function calcEnergy() {
             <div class="dropdown-menu">
                <p class="dropdown-item">День - <span>${dayReal}</span> кВт/ч</p>
                <p class="dropdown-item">Ночь - <span>${nightReal}</span> кВт/ч</p><hr>
-               <p class="dropdown-item">При использовании<br> обычного счетчика <br> вы бы заплатили - <span class="sp-1">${totalMoneyNormal.toFixed(2)}</span> грн.</p>
-               <p class="dropdown-item">Вы сэкономили - <span class="sp-2">${(totalMoneyNormal - totalMoney).toFixed(2)}</span> грн.</p>
+               <p class="dropdown-item">При использовании<br> обычного счетчика <br> вы бы заплатили: <span class="sp-1">${totalMoneyNormal.toFixed(2)}</span> грн.</p>
+               <p class="dropdown-item">Вы сэкономили: <span class="sp-2">${(totalMoneyNormal - totalMoney).toFixed(2)}</span> грн.</p>
              </div>
           </div>`;
          }
@@ -91,28 +87,13 @@ function calcEnergy() {
       }
 
    } else {
-      // outWarning.innerHTML = 'Заполните все поля';
       outWarning.innerHTML = `<div class="alert alert-warning" role="alert">
       Заполните все поля! </div>`;
    }
-   
-   
-
-   // console.log('hello');
-   // console.log(typeof(dayOld));
-
-   //  if (dayOld !== '') {
-   //    console.log('hello');
-   // } else {
-   //    console.log('Заполните все поля!');
-   // }
-   // console.log(totalMoney);
-
-   
+    
    
    return totalMoney;
 }
 
 document.querySelector('button').onclick = calcEnergy;
 
-// // if (trim(dayOld) != '' && trim(dayNew) != '' && trim(nightOld) != '' && trim(nightNew) != '')
